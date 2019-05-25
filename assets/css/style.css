@@ -1,4 +1,31 @@
+*{
+  color: white;
+}
+
+
 #todo-error{
   color: red;
   font-size: 2em;
+}
+
+#bg-image{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+#quote{
+  text-shadow: 1px 1px black;
+  background-color: rgba(100, 100, 100, .1) 
+}
+.quotequote{
+  font-size: 1rem;
+}
+
+.quotequote2{
+  font-size: 1rem;
+}
+
+#weather{
+  text-shadow: 1px 1px black;
 }

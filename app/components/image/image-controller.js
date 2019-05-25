@@ -1,9 +1,19 @@
 import ImageService from "./image-service.js";
 
-const _is = new ImageService()
+let _imageService = new ImageService()
 
-export default class ImageController {
+
+function _drawImage() {
+  document.querySelector('#bg-image').style.backgroundImage = `url('${_imageService.Images.url}')`
 
 
 }
 
+export default class ImageController {
+  constructor() {
+    _imageService.addSubscriber('images', _drawImage)
+
+    _imageService.getApiImages()
+  }
+
+}
