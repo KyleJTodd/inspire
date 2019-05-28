@@ -34,10 +34,10 @@ export default class TodoService {
 	getTodos() {
 		todoApi.get()
 			.then(res => {
-				let data = res.data.map(t => new ToDo(t))
+				let data = res.data.data.map(t => new ToDo(t))
 				_setState('todos', data)
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	addTodo(todo) {
@@ -46,7 +46,7 @@ export default class TodoService {
 				this.getTodos()
 				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	toggleTodoStatus(todoId) {
@@ -62,7 +62,7 @@ export default class TodoService {
 
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	removeTodo(todoId) {

@@ -8,7 +8,7 @@ function _drawTodos() {
 	todos.forEach(t => {
 		template += t.Template
 	})
-	document.getElementById('#todos').innerHTML = template
+	document.getElementById('todos').innerHTML = template
 }
 
 function _drawError() {
@@ -30,7 +30,7 @@ export default class TodoController {
 		e.preventDefault()
 		let form = e.target
 		let todo = {
-			description: form.description.value
+			description: form.tdesc.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
 		form.reset()

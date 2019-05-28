@@ -9,39 +9,49 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<title>Inspire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script>
+		function startTime() {
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById('txt').innerHTML =
+				h + ":" + m + ":" + s;
+			var t = setTimeout(startTime, 500);
+		}
+		function checkTime(i) {
+			if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+			return i;
+		}
+	</script>
 </head>
 
-<body class="container-fluid" id="bg-image">
-	<div class="row">
-		<div class="col-12" id="weather">
+<body class="container-fluid" id="bg-image" onload="startTime()"">
+	<div class=" row">
+	<div class="col-12" id="weather">
 
-		</div>
 	</div>
-	<div class="row">
-		<div class="col-4" id="todo-error">
-
-
-
-			<div id="todo-error">
-			</div>
-			<form onsubmit="">
-			</form>
-			<div id="todos">
-				<form onsubmit="app.controllers.todoController.addToDo(event)">
-					<input type="text" id="tododescription" placeholder="Add New List Item">
-					<button class="btn btn-success" type="submit"></button>
-				</form>
-
-			</div>
+	</div>
+	<footer class="row">
+		<div class="col-4" id="todos">
 		</div>
 
+
+		<div class="col-4" id="txt">
+
+		</div>
 		<div class="col-4" id="quote">
+		</div>
+	</footer>
+	<div class="row">
+		<form onsubmit="app.controllers.todoController.addTodo(event)">
+			<input type="text" id="tododescription" name="tdesc" placeholder="Add New To Do">
+			<button class="btn bg-transparent" type="submit">Add To Do</button>
+		</form>
+	</div>
 
-		</div>
-		<div class="col-4">
-		</div>
-	</div>
-	</div>
 
 
 
