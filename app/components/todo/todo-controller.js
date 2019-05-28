@@ -8,7 +8,7 @@ function _drawTodos() {
 	todos.forEach(t => {
 		template += t.Template
 	})
-	document.getElementById('todos').textContent = template
+	document.getElementById('#todos').innerHTML = template
 }
 
 function _drawError() {
@@ -22,20 +22,21 @@ export default class TodoController {
 		_todoService.addSubscriber('todos', _drawTodos)
 		_todoService.addSubscriber('error', _drawError)
 		_todoService.getTodos()
-		_todoService.getTodos()
 		// Don't forget to add your subscriber
 
 	}
 
 	addTodo(e) {
 		e.preventDefault()
-		var form = e.target
-		var todo = {
-			description: form.data.value
+		let form = e.target
+		let todo = {
+			description: form.description.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
+		form.reset()
 
 		_todoService.addTodo(todo)
+		_drawTodos()
 	}
 
 	toggleTodoStatus(todoId) {
